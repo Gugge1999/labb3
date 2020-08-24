@@ -132,7 +132,7 @@ router.post('/login/', async (req, res) => {
   const passwordMatches = await compPass(body.password, found.password);
 
   if (passwordMatches == true) {
-    res.json('Det gick att logga in: ' + body.email);
+    res.json(`Det gick att logga in: ${body.email}`);
   } else {
     res.status(400).send('Kunde inte logga in. Fel lösenord');
   }
