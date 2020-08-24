@@ -1,0 +1,77 @@
+.carousel {
+  width: 640px;
+  height: 360px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 50px;
+  font-size: 24px;
+}
+
+.copyright-text {
+  color: #212529;
+}
+
+.list-unstyled {
+  margin-bottom: 0em;
+}
+
+footer {
+  background-color: #32a89ec7;
+}
+
+.btn-light {
+  margin-left: 0.5em;
+  background-color: #f8f9fa;
+  border-color: #ced4da;
+}
+
+.fa-shopping-cart {
+  color: #222222;
+}
+
+.btn-danger {
+  color: #ffffff !important;
+}
+
+.breadcrumb {
+  background-color: #f8f9fa;
+}
+
+.breadcrumb-item {
+  color: #212529;
+}
+
+.breadcrumb-item.active {
+  color: #212529;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #212529;
+}
+
+#all-cards {
+  border-color: white;
+}
+
+#adminButton {
+  margin-right: 8px;
+}
+
+.btn-success {
+  margin-left: 4px;
+}
+
+#shoppingCart {
+  width: 80px;
+  height: 40px;
+}

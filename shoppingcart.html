@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shopping cart</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com
+	/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container" style="width: 50%;">
+      <h1>Products for sale</h1>
+      <table id="tblProducts" class="table">
+        <tr>
+          <td>Name</td>
+          <td>Price</td>
+          <td>Buy</td>
+        </tr>
+      </table>
+
+      <h1>Shopping cart <i class="badge"></i></h1>
+      <table id="tblCart" class="table"></table>
+    </div>
+  </body>
+  <script src="shoppingcart.js"></script>
+  <script>
+    $(document).ready(function () {
+      getProducts();
+    });
+  </script>
+</html>
