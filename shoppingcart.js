@@ -118,6 +118,7 @@ var ShoppingCart = class {
   } //end showProductsInCart
 }; //end class ShoppingCart
 
+// Get all products that the user have added to shoppingcart
 function getProducts() {
   let cart = JSON.parse(sessionStorage.getItem('cart'));
   initShop(cart);
