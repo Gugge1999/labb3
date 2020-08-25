@@ -131,7 +131,7 @@ var Product = class {
     this.qty = 0;
   } //end constructor
 }; //end class Product
-//test to see if it works
+
 //Gsbal variables
 var cart = new ShoppingCart();
 var tableProducts = document.querySelector('#tblProducts');
