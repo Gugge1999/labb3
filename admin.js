@@ -131,7 +131,6 @@ function updateProduct() {
     },
   });
 }
-
 function itemArray() {
   // Gets the value from the textfield in the midal
   let myName = $('#myAddModal #txtAddName').val();
