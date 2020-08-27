@@ -1,120 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  
-  <link rel="stylesheet" type="text/css" href="style.css">
-  
-  <!--Font Awesome-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  
-</head>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-<body>
-  <!--Start navbar container-->
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-10">
-        <h3>Welcome to the admin site!</h3>
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myAddModal">Add
-          Product</button>
-      </div>
-    </div>
-    <div class="row" style="margin-top: 25px;">
-      <div class="col">
-        <table class="table table-striped" id="tblProduct"></table>
-      </div>
-    </div>
-  </div>
-  <!--End navbar container-->
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-  <!-- Update and delete Modal -->
-  <div class="modal fade" id="updateAndDeleteModal" tabindex="-1" role="dialog" aria-labelledby="updateAndDeleteModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+  </head>
 
-      <div class="modal-header">
-        <h5 class="modal-title" id="updateAndDeleteModalLabel">Edit product</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <body>
+    <!--Start navbar container-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10">
+          <h3>Welcome to the admin site!</h3>
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myAddModal">Add Product</button>
+        </div>
       </div>
-      
-      <div class="modal-body">
-        <form id="addProductForm">
-            Name:<input type="text" class="form-control" id="txtName" name="name">
-            Description:<input type="text" class="form-control" id="txtDescription" name="description">
-            Price:<input type="text" class="form-control" id="txtPrice" name="price">
-            ID:<input type="text" class="form-control" id="txtId" name="id" readonly="true">
-        </form>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button onclick="deleteProduct()" class="btn btn-danger">Delete</button>
-        <button onclick="updateProduct()" class="btn btn-primary">Update</button>
+      <div class="row" style="margin-top: 25px">
+        <div class="col">
+          <table class="table table-striped" id="tblProduct"></table>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<!--End update and delete modal-->
+    <!--End navbar container-->
 
+    <!-- Update and delete Modal -->
+    <div
+      class="modal fade"
+      id="updateAndDeleteModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="updateAndDeleteModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateAndDeleteModalLabel">Edit product</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-<!--Add product modal-->
-<div class="modal" id="myAddModal">
-  <div class="modal-dialog">
-      <div class="modal-content">
+          <div class="modal-body">
+            <form id="addProductForm">
+              Name:<input type="text" class="form-control" id="txtName" name="name" /> Description:<input
+                type="text"
+                class="form-control"
+                id="txtDescription"
+                name="description"
+              />
+              Price:<input type="text" class="form-control" id="txtPrice" name="price" /> ID:<input
+                type="text"
+                class="form-control"
+                id="txtId"
+                name="id"
+                readonly="true"
+              />
+            </form>
+          </div>
 
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button onclick="deleteProduct()" class="btn btn-danger">Delete</button>
+            <button onclick="updateProduct()" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End update and delete modal-->
+
+    <!--Add product modal-->
+    <div class="modal" id="myAddModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
-              <h4 class="modal-title">Add new products to your list</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add new products to your list</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
 
           <!-- Modal body -->
           <div class="modal-body">
-              <form id="addProductForm">
-                  <div class="form-group">
-                      <label for="txtAddName">Name</label>
-                      <input type="text" id="txtAddName" class="form-control" name="name">
-                  </div>
-                  <div class="form-group">
-                      <label for="txtAddDescription">Description</label>
-                      <input type="text" id="txtAddDescription" class="form-control" name="description">
-                  </div>
-                  <div class="form-group">
-                      <label for="txtAddPrice">Price</label>
-                      <input type="text" id="txtAddPrice" class="form-control" name="price">
-                  </div>
-              </form>
+            <form id="addProductForm">
+              <div class="form-group">
+                <label for="txtAddName">Name</label>
+                <input type="text" id="txtAddName" class="form-control" name="name" />
+              </div>
+              <div class="form-group">
+                <label for="txtAddDescription">Description</label>
+                <input type="text" id="txtAddDescription" class="form-control" name="description" />
+              </div>
+              <div class="form-group">
+                <label for="txtAddPrice">Price</label>
+                <input type="text" id="txtAddPrice" class="form-control" name="price" />
+              </div>
+            </form>
           </div>
 
           <!-- Modal footer -->
           <div class="modal-footer">
-              <div class="btn-group">
-                  <button type="submit" id="btnSubmit" class="btn btn-success">Add</button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-              </div>
+            <div class="btn-group">
+              <button type="submit" id="btnSubmit" class="btn btn-success">Add</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
           </div>
-
+        </div>
       </div>
-  </div>
-</div>
-<!--End add modal-->
+    </div>
+    <!--End add modal-->
 
-<!--Gammal kod-->
-<!-- <div class="container">
+    <!--Gammal kod-->
+    <!-- <div class="container">
   <div class="row" style="margin-top: 25px;">
     <div class="col">
       <table class="table table-striped" id="tblProduct"></table>
@@ -122,173 +138,22 @@
   </div>
 </div> -->
 
-  <!--End filter out product container-->
+    <!--End filter out product container-->
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS, then ajax google api-->
-  <!-- Kom ihåg att Googles ajax script måste ligga längst ned-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-    <script>
-      
-      let nameArray = [];
-      let descriptionArray = [];
-      let priceArray = [];
-
-      /* Start getProducts*/
-      function getProducts() {
-        $.getJSON("http://127.0.0.1:3000/products/", function (data) {
-          showProductsInTable(data);
-          console.log(data);
-        });
-      }
-
-      function showProductsInTable(data) {
-        let table = $("#tblProduct");
-        table.empty();
-        table.append("<thead>");
-        table.append("<th>" + "ID" + "</th>");
-        table.append("<th>" + "Name" + "</th>");
-        table.append("<th>" + "Description" + "</th>");
-        table.append("<th>" + "Price" + "</th>");
-        table.append("</thead>");
-        table.append("<tbody id='myTable'");
-        $.each(data, function (idx, products) {
-          table.append("<tr>" +
-            "<td><a href='#' onclick=getProductById('" + products.ID + "')>"
-            + products.ID + "</a></td>" +
-            "<td>" + products.name + "</td>" +
-            "<td>" + products.description + "</td>" +
-            "<td>" + products.price + "</td>" +
-            "</tr>"
-          );
-        }); // End loop
-        table.append("</tbody>");
-      } // End showProductsInTable
-
-      function getProductById(id) {
-        $.getJSON("http://127.0.0.1:3000/products/" + id, function (data) {
-          showProductInForm(data);
-        });
-      } // End getProductById
-
-      function showProductInForm(data){
-        // Get the textfield from modal
-        let myId = $("#txtId");
-        let myName = $("#txtName");
-        let myDescription = $("#txtDescription");
-        let myPrice = $("#txtPrice");
-        // set textfield from json
-        myId.val(data.ID);
-        myName.val(data.name);
-        myDescription.val(data.description);
-        myPrice.val(data.price);
-
-        // Show the modal
-        $('#updateAndDeleteModal').modal('show');
-      }
-
-      function addProduct(){
-        // Assign values in the modal textifeld to variables
-        let myName = $("#myAddModal #txtAddName").val();// Gets the value from the textfield in the modal
-        let myDescription = $("#myAddModal #txtAddDescription").val();
-        let myPrice = $("#myAddModal #txtAddPrice").val();
-
-        $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:3000/products/",
-                // The key needs to match your method's input parameter (case-sensitive).
-                data: JSON.stringify({ "name": myName, "description": myDescription,
-                 "price": myPrice }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) { getProducts(); $('#myAddModal').modal('hide');},
-                failure: function (errMsg) {
-                    alert(errMsg);
-                }
-            });
-      } // End addProduct
-
-      function deleteProduct() {
-            let myId = $("#txtId").val();//get value from textfield
-            $.ajax({
-                type: "DELETE",
-                url: "http://127.0.0.1:3000/products/" + myId,
-                success: function (data) { getProducts(); $('#updateAndDeleteModal').modal('hide');},
-                failure: function (errMsg) {
-                    alert("failure:" + errMsg.title);
-                }
-            });
-      }
-
-      function updateProduct() {
-          //assign values in modal text fields to variables
-          let myName = $("#txtName").val(); //get value from textfield
-          let myDescription = $("#txtDescription").val();
-          let myPrice = $("#txtPrice").val();
-          let myId = $("#txtId").val();
-          console.log(myName);
-
-          $.ajax({
-            type: "PUT",
-            url: "http://127.0.0.1:3000/products/",
-            // The key needs to match your method's input parameter (case-sensitive).
-            data: JSON.stringify({ "name": myName, "description": myDescription, "price": myPrice, "id": myId }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) { getProducts(); $('#updateAndDeleteModal').modal('hide');},
-                failure: function (errMsg) {
-                    alert(errMsg);
-                }
-          });
-        }
-
-        function itemArray(){
-          // Gets the value from the textfield in the midal
-          let myName = $("#myAddModal #txtAddName").val();
-          let myDescription = $("#myAddModal #txtAddDescription").val();
-          let myPrice = $("#myAddModal #txtAddPrice").val();
-          let myId = $("#txtId").val();
-
-          /* nameArray.push(myName);
-          descriptionArray.push(myDescription);
-          priceArray.push(myPrice);
-
-          console.log(nameArray);
-          console.log(descriptionArray);
-          console.log(priceArray); */
-
-          var jsonStr = '{"theTeam":[]}';
-
-          var obj = JSON.parse(jsonStr);
-          obj['theTeam'].push({"name":myName,"description": myDescription, "price": myPrice, "id": myId});
-          jsonStr = JSON.stringify(obj);
-          console.log(jsonStr);
-        }
-
-        $(document).ready(function () {
-            $(function () {
-              $("#btnSubmit").on("click", function (e) {
-                var form = $(addProductForm)[0];
-                var isValid = form.checkValidity();
-                if (!isValid) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                } else if (isValid) {
-                  addProduct();
-                  itemArray();
-                }
-                form.classList.add('was-validated');
-                return false;
-              });
-            });
-            getProducts();
-          });
-    </script>
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then ajax google api-->
+    <!-- Kom ihåg att Googles ajax script måste ligga längst ned-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./admin.js"></script>
+  </body>
 </html>
