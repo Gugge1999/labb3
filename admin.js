@@ -6,7 +6,6 @@ let priceArray = [];
 function getProducts() {
   $.getJSON('http://127.0.0.1:3000/products/', function (data) {
     showProductsInTable(data);
-    console.log(data);
   });
 }
 
@@ -80,14 +79,14 @@ function addProduct() {
       description: myDescription,
       price: myPrice,
     }),
-    contentType: 'application/json; charset=utf-8',
+    contentType: 'application/json',
     dataType: 'json',
     success: function (data) {
       getProducts();
       $('#myAddModal').modal('hide');
     },
-    failure: function (errMsg) {
-      alert(errMsg);
+    error: function (jqXHR) {
+      console.log(jqXHR.responseText);
     },
   });
 } // End addProduct
@@ -122,7 +121,8 @@ function updateProduct() {
     data: JSON.stringify({ name: myName, description: myDescription, price: myPrice, id: myId }),
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
-    success: function (data) {
+    success: function (data, textStatus) {
+      console.log;
       getProducts();
       $('#updateAndDeleteModal').modal('hide');
     },
