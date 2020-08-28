@@ -91,12 +91,6 @@ const loginUser = async (email) => {
   }
 };
 
-const test = (body) => {
-  try {
-    const itemArray = [];
-  } catch (error) {}
-};
-
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
