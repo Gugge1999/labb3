@@ -137,21 +137,6 @@ function itemArray() {
   let myDescription = $('#myAddModal #txtAddDescription').val();
   let myPrice = $('#myAddModal #txtAddPrice').val();
   let myId = $('#txtId').val();
-
-  /* nameArray.push(myName);
-    descriptionArray.push(myDescription);
-    priceArray.push(myPrice);
-
-    console.log(nameArray);
-    console.log(descriptionArray);
-    console.log(priceArray); */
-
-  var jsonStr = '{"theTeam":[]}';
-
-  var obj = JSON.parse(jsonStr);
-  obj['theTeam'].push({ name: myName, description: myDescription, price: myPrice, id: myId });
-  jsonStr = JSON.stringify(obj);
-  console.log(jsonStr);
 }
 
 $(document).ready(function () {

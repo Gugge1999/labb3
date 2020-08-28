@@ -69,7 +69,7 @@ router.put('/products/', async (req, res) => {
     res.status(400).send(`Namn kan inte vara tomt`);
   } else if (!body.description) {
     res.status(400).send(`Beskrivningen kan inte vara tomt`);
-  } else if (!body.price) {
+  } else if (!body.price || !body.price.match('^\\d+$')) {
     res.status(400).send(`Du måste ange ett pris!`);
   } else if (found) {
     const result = await dbQueries.updateProduct(body);

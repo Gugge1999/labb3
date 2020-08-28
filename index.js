@@ -10,7 +10,6 @@ function getProducts() {
 
 function showCards(jsondata) {
   let cardgroup = $('#all-cards');
-  /* cardgroup.empty(); */
 
   let cardrow = document.createElement('div');
   cardrow.setAttribute('class', 'row');
@@ -57,14 +56,12 @@ function showCards(jsondata) {
 
       var uniqueItems = [...new Set(cartArray)]; // uniqueItems söker genom cartArray och tar bort dubbletter
       sessionStorage.setItem('cart', JSON.stringify(uniqueItems));
-      console.log(uniqueItems);
 
       let numberOfItems = Object.keys(uniqueItems).length;
-      console.log(numberOfItems);
       document.getElementById('numberOfItemsInCart').innerHTML = numberOfItems;
 
       // Disable button after it's clicked
-      $(this).prop('disabled', true);
+      http: $(this).prop('disabled', true);
 
       // Blink Shopping Cart Button
       $('#shoppingCart').fadeTo(100, 0.5, function () {
@@ -86,11 +83,6 @@ function showCards(jsondata) {
       modal.find('#description').text(description);
       modal.find('#price').text(price);
     });
-
-    /* $('#addAndCloseButtons').on('click', function () {
-      cartArray.push(jsondata[i]);
-      console.log(cartArray);
-    }); */
 
     cardbody.append(cardtitle);
     cardbody.append(cardtext);
