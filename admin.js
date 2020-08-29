@@ -66,9 +66,9 @@ function showProductInForm(data) {
 
 function addProduct() {
   // Assign values in the modal textifeld to variables
-  let myName = $('#myAddModal #txtAddName').val(); // Gets the value from the textfield in the modal
-  let myDescription = $('#myAddModal #txtAddDescription').val();
-  let myPrice = $('#myAddModal #txtAddPrice').val();
+  let myName = $('#myAddModal #txtAddNameInput').val(); // Gets the value from the textfield in the modal
+  let myDescription = $('#myAddModal #txtAddDescriptionInput').val();
+  let myPrice = $('#myAddModal #txtAddPriceInput').val();
 
   $.ajax({
     type: 'POST',
@@ -86,7 +86,21 @@ function addProduct() {
       $('#myAddModal').modal('hide');
     },
     error: function (jqXHR) {
-      console.log(jqXHR.responseText);
+      var response = jqXHR.responseText;
+      var nameCheck = response.includes('name');
+      var descriptionCheck = response.includes('description');
+      var priceCheck = response.includes('price');
+      if (nameCheck) {
+        var text = document.getElementById('txtAddNameInput');
+        text.setAttribute('placeholder', response);
+      } else if (descriptionCheck) {
+        var text = document.getElementById('txtAddDescriptionInput');
+        text.setAttribute('placeholder', response);
+      } else if (priceCheck) {
+        $('#txtAddPriceInput').val('');
+        var text = document.getElementById('txtAddPriceInput');
+        text.setAttribute('placeholder', response);
+      }
     },
   });
 } // End addProduct

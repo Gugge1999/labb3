@@ -19,11 +19,11 @@ router.post('/products/', async (req, res) => {
   const id = body.id;
 
   if (!body.description) {
-    res.status(400).send(`Du måste ange en beskrivning`);
+    res.status(400).send(`You have to write a description`);
   } else if (!body.name) {
-    res.status(400).send(`Du måste ange ett namn`);
+    res.status(400).send(`You have to write a product name`);
   } else if (!body.price || !body.price.match('^\\d+$')) {
-    res.status(400).send(`Du måste ange ett pris eller så är priset inte ett number`);
+    res.status(400).send(`You have to write a price or the price is not a number`);
   } else {
     const found = await dbQueries.saveProduct(body);
     res.json({ status: 'Allt funkade' });
