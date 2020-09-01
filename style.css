@@ -76,6 +76,11 @@ footer {
   height: 40px;
 }
 
-::placeholder {
+input[type='text']::placeholder {
   color: #d9534f !important;
 }
+
+/* .searchIndexPage {
+  color: black !important;
+}
+ */

@@ -86,6 +86,7 @@ function addProduct() {
       $('#myAddModal').modal('hide');
     },
     error: function (jqXHR) {
+      // Bryt ut functionen som finns i POST och PUT till en egen function.
       var response = jqXHR.responseText;
       var nameCheck = response.includes('name');
       var descriptionCheck = response.includes('description');
