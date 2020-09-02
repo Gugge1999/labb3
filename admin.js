@@ -71,22 +71,21 @@ function addProduct() {
   let myPrice = $('#myAddModal #txtAddPriceInput').val();
 
   $.ajax({
-    type: 'POST',
     url: 'http://127.0.0.1:3000/products/',
-    // The key needs to match your method's input parameter (case-sensitive).
+    type: 'POST',
+    dataType: 'json',
     data: JSON.stringify({
       name: myName,
       description: myDescription,
       price: myPrice,
     }),
     contentType: 'application/json',
-    dataType: 'json',
-    success: function (data) {
+  })
+    .done(function (data) {
       getProducts();
       $('#myAddModal').modal('hide');
-    },
-    error: function (jqXHR) {
-      // Bryt ut functionen som finns i POST och PUT till en egen function.
+    })
+    .fail(function (jqXHR) {
       var response = jqXHR.responseText;
       var nameCheck = response.includes('name');
       var descriptionCheck = response.includes('description');
@@ -102,8 +101,10 @@ function addProduct() {
         var text = document.getElementById('txtAddPriceInput');
         text.setAttribute('placeholder', response);
       }
-    },
-  });
+    })
+    .always(function () {
+      console.log('Complete');
+    });
 } // End addProduct
 
 function deleteProduct() {
@@ -145,13 +146,6 @@ function updateProduct() {
       alert(errMsg);
     },
   });
-}
-function itemArray() {
-  // Gets the value from the textfield in the midal
-  let myName = $('#myAddModal #txtAddName').val();
-  let myDescription = $('#myAddModal #txtAddDescription').val();
-  let myPrice = $('#myAddModal #txtAddPrice').val();
-  let myId = $('#txtId').val();
 }
 
 $(document).ready(function () {
