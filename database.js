@@ -61,6 +61,7 @@ const deleteProduct = async (id) => {
     throw new Error(error);
   }
 };
+
 const getUsers = async () => {
   try {
     const db = await dbCon;

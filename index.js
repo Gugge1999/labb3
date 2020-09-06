@@ -45,13 +45,12 @@ function showCards(jsondata) {
     let addButton = document.createElement('button');
     addButton.setAttribute('class', 'btn btn-success');
     addButton.innerHTML += 'Add';
-    addButton.setAttribute('data-target', '#addAndCloseButtons');
     addButton.setAttribute('id', jsondata[i].ID);
 
     $(addButton).on('click', function () {
       // Denna metod hittar det första objektet av något genom att köra alla json objekt och kollar
-      // sen där jsonImte.id = det id som finns på produktern och tilldellar sedan detta objekt till item.
-      let item = jsondata.find((jsonItem) => jsonItem.ID == addButton.getAttribute('id'));
+      // sen där jsonItem.id = det id som finns på produktern och tilldellar sedan detta objekt till item.
+      /* let item = jsondata.find((jsonItem) => jsonItem.ID == addButton.getAttribute('id'));
       cartArray.push(item);
 
       var uniqueItems = [...new Set(cartArray)]; // uniqueItems söker genom cartArray och tar bort dubbletter
@@ -66,7 +65,7 @@ function showCards(jsondata) {
       // Blink Shopping Cart Button
       $('#shoppingCart').fadeTo(100, 0.5, function () {
         $(this).fadeTo(500, 1.0);
-      });
+      }); */
     });
 
     $('#detailsModal').on('show.bs.modal', function (event) {
@@ -84,11 +83,31 @@ function showCards(jsondata) {
       modal.find('#price').text(price);
     });
 
+    let findID = jsondata[i].ID;
+
+    $('#cartAddButton').on('click', function () {
+      let item = jsondata.find((jsonItem) => jsonItem.ID == findID.getAttribute('id'));
+      cartArray.push(item);
+
+      var uniqueItems = [...new Set(cartArray)]; // uniqueItems söker genom cartArray och tar bort dubbletter
+      sessionStorage.setItem('cart', JSON.stringify(uniqueItems));
+
+      let numberOfItems = Object.keys(uniqueItems).length;
+      document.getElementById('numberOfItemsInCart').innerHTML = numberOfItems;
+
+      // Disable button after it's clicked
+      http: $(this).prop('disabled', true);
+
+      // Blink Shopping Cart Button
+      $('#shoppingCart').fadeTo(100, 0.5, function () {
+        $(this).fadeTo(500, 1.0);
+      });
+    });
+
     cardbody.append(cardtitle);
     cardbody.append(cardtext);
     cardbody.append(readmoreButton);
     cardbody.append(addButton);
-
     card.append(cardbody);
     cardcolumn.append(card);
     cardrow.append(cardcolumn);
@@ -96,6 +115,8 @@ function showCards(jsondata) {
 
   cardgroup.append(cardrow);
 }
+
+function test() {}
 
 $(document).ready(function () {
   getProducts();
