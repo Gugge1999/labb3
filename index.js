@@ -47,8 +47,6 @@ function showCards(jsondata) {
     addButton.innerHTML += 'Add';
     addButton.setAttribute('id', jsondata[i].ID);
 
-    let findID = jsondata[i].ID;
-
     $(addButton).on('click', function () {
       // Denna metod hittar det första objektet av något genom att köra alla json objekt och kollar
       // sen där jsonItem.id = det id som finns på produktern och tilldellar sedan detta objekt till item.
@@ -57,9 +55,11 @@ function showCards(jsondata) {
       var uniqueItems = [...new Set(cartArray)]; // uniqueItems söker genom cartArray och tar bort dubbletter
       sessionStorage.setItem('cart', JSON.stringify(uniqueItems));
       let numberOfItems = Object.keys(uniqueItems).length;
+
       document.getElementById('numberOfItemsInCart').innerHTML = numberOfItems;
       // Disable button after it's clicked
       http: $(this).prop('disabled', true);
+
       // Blink Shopping Cart Button
       $('#shoppingCart').fadeTo(100, 0.5, function () {
         $(this).fadeTo(500, 1.0);
@@ -91,7 +91,7 @@ function showCards(jsondata) {
   }
 
   cardgroup.append(cardrow);
-}
+} // End show cards
 
 $(document).ready(function () {
   getProducts();
